@@ -1,0 +1,276 @@
+html,
+body {
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    font-family: 'Source Sans Pro', sans-serif;
+    overflow: hidden;
+}
+
+.logo {
+    display: inline-block;
+    font-weight: 400;
+}
+
+a {
+    cursor: pointer;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+.container {
+    height: 100vw;
+    position: relative;
+}
+
+
+.full {
+    height: 100%;
+    width: 100%;
+}
+
+.center {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.abs {
+    position: absolute;
+}
+
+.overflow-hidden {
+    overflow: hidden;
+}
+
+.pd-0 {
+    padding: 0
+}
+
+.m-0 {
+    margin: 0;
+}
+
+.none {
+    visibility: hidden;
+}
+
+.w-100 {
+    width: 100%;
+}
+
+.h-100 {
+    height: 100%;
+}
+
+.section-image {
+    width: 65%;
+    position: relative;
+}
+
+.section-info {
+    width: 35%;
+    position: relative;
+}
+
+.list-container {
+    height: 85%;
+    bottom: 0;
+    position: absolute;
+}
+
+.team-list {
+    white-space: nowrap;
+    transition: all 1s;
+    overflow: hidden;
+    transform: translate(-15%);
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row-reverse;
+}
+
+.member {
+    width: calc(100vw/8);
+    float: left;
+    margin: 2%;
+    overflow: hidden;
+    position: relative;
+    transition: all 1s;
+    -webkit-transition-timing-function: ease;
+    /* Safari */
+    transition-timing-function: ease;
+}
+
+.member-outer {
+    bottom: 40px;
+    position: absolute;
+    overflow: hidden;
+}
+
+.image-container {
+    height: 220px;
+    background-repeat: no-repeat;
+    /* Do not repeat the image */
+    background-size: cover;
+    /* Resize the background image to cover the entire container */
+    margin-bottom: 6px;
+    transition: all 1s;
+    -webkit-transition-timing-function: ease;
+    /* Safari */
+    transition-timing-function: ease;
+    cursor: pointer;
+}
+
+.image-container:hover ~ div{
+    width: 100%;
+    opacity: 1;
+}
+
+.active-ne {
+    width: 100% !important;
+    opacity: 1 !important;
+}
+
+.divide {
+    height: 5px;
+    background: rgb(2, 0, 99);
+    opacity: 1;
+    margin-bottom: 10px;
+    width: 0;
+    transition: all 1s ease-in-out;
+}
+
+.info-outer {
+    transition: all .6s ease-in-out;
+    opacity: 0;
+    line-height: 2rem;
+}
+
+.member-name {
+    font-weight: 600;
+    font-size: calc(1px + 15 * (100vw - 320px) / 1120);
+}
+
+.member-role {
+    color: gray;
+    font-size: calc(1px + 15 * (100vw - 320px) / 1120);
+}
+
+.active {
+    height: 550px;
+}
+
+.animate {
+    width: 0;
+    margin: 0
+}
+
+.div-outer {
+    width: 80%;
+    height: 50%;
+    left: 0;
+    position: absolute;
+}
+
+.wrap-name {
+    height: 11%;
+}
+
+.title-container,
+.role,
+.description {
+    position: absolute;
+    display: flex;
+}
+
+.role {
+    transform: translate(0, 100%);
+    position: absolute;
+    visibility: hidden;
+    transition: all 1s;
+    font-size: calc(6px + 15 * (100vw - 320px) / 1120);
+    color: rgb(187, 187, 187);
+}
+
+.wrap-role {
+    position: relative;
+    height: calc(20px + 20 * (100vw - 320px) / 1120);
+    overflow: hidden;
+}
+
+.letter-wrapper {
+    height: calc(20px + 20 * (100vw - 320px) / 1120);
+    padding: 2px;
+    display: inline-block;
+    overflow: hidden;
+}
+
+.title {
+    display: inline-block;
+    font-size: calc(6px + 20 * (100vw - 320px) / 1120);
+    line-height: 1.15;
+    transform: translate(0, 200%);
+    transition: all 1s;
+    font-weight: 600
+}
+
+.active-title {
+    visibility: visible;
+    transform: translate(0, 0);
+}
+
+.active-role {
+    visibility: visible;
+    transform: translate(0, -100%);
+}
+
+.description {
+    opacity: 0;
+    transition: all 1s;
+    font-weight: 600;
+    color: rgb(75, 75, 75);
+}
+
+.active-description {
+    opacity: 1;
+}
+
+.btn {
+    width: 50px;
+    height: 50px;
+    text-decoration: none;
+    border-radius: 50%;
+    position: absolute;
+    font-size: 30px;
+    text-align: center;
+    bottom: 50px;
+    left: 0;
+    background-color: #bacacc;
+}
+
+.rotate-title {
+    font-size: calc(6px + 10 * (100vw - 320px) / 1120);
+    font-weight: 600;
+    letter-spacing: .1rem;
+    width: fit-content;
+    position: absolute;
+    transform: rotate(-90deg);
+    left: 40%;
+    top: 30%;
+}
+
+.counter {
+    position: absolute;
+    z-index: 499;
+    left: 30%;
+    top: 25%;
+}
