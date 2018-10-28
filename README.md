@@ -1,3 +1,3 @@
 # avengers
 
-![alt text](avengers/image/Screenshot.png)
+![alt text](./image/Screenshot.png)
