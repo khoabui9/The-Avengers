@@ -1,4 +1,4 @@
-var avengers = [{
+const avengers = [{
     name: "Ironman",
     role: "hero",
     description: "A billionaire industrialist and genius inventor, Tony Stark (Robert Downey Jr.), is conducting weapons tests overseas, but terrorists kidnap him to force him to build a devastating weapon. Instead, he builds an armored suit and upends his captors. Returning to America, Stark refines the suit and uses it to combat crime and terrorism.",
@@ -35,18 +35,18 @@ var avengers = [{
     image: "./image/thanos.jpg"
 }]
 
-var active = 0;
-var clickStatus = {
-    click: false,
-    functionCall: false
-};
-var clickTimer = false;
-const container = document.querySelector('.container')
+const container = document.querySelector('.container');
+var clickTimer = false,
+    active = 0,
+    clickStatus = {
+        click: false,
+        functionCall: false
+    }
 
 function createSection(id = null, ...args) {
-    var className = [...args];
+    var className = [...args],
+        section = document.createElement("section")
 
-    var section = document.createElement("section")
     section.classList.add(...className)
     section.id = id
 
@@ -54,9 +54,9 @@ function createSection(id = null, ...args) {
 }
 
 function createDiv(id = null, ...args) {
-    var className = [...args];
+    var className = [...args],
+        div = document.createElement("div")
 
-    var div = document.createElement("div")
     div.classList.add(...className)
     div.id = id
 
@@ -65,9 +65,8 @@ function createDiv(id = null, ...args) {
 }
 
 function createUList(id = null, ...args) {
-    var className = [...args]
-
-    var list = document.createElement('ul')
+    var className = [...args],
+        list = document.createElement('ul')
 
     list.classList.add(...className);
     list.id = id
@@ -76,9 +75,8 @@ function createUList(id = null, ...args) {
 }
 
 function createList(id = null, ...args) {
-    var className = [...args]
-
-    var list = document.createElement('li')
+    var className = [...args],
+        list = document.createElement('li')
 
     list.classList.add(...className);
     list.id = id
@@ -87,38 +85,36 @@ function createList(id = null, ...args) {
 }
 
 function createHeading(heading, id = null, text, ...args) {
-    var className = [...args]
-
-    var heading = document.createElement(heading)
+    var className = [...args],
+        heading = document.createElement(heading)
 
     heading.classList.add(...className)
     heading.id = id
-    heading.innerHTML = text
+    heading.textContent = text
 
 
     return heading
 }
 
 function createPara(id = null, text, ...args) {
-    var className = [...args]
-
-    var para = document.createElement("p")
+    var className = [...args],
+        para = document.createElement("p")
 
     para.classList.add(...className);
     para.id = id
-    para.innerHTML = text
+    para.textContent = text
 
     return para
 }
 
 
 function createTitle(title, idx, ...args) {
-    var tc = ["title-container"]
-    var lw = ["letter-wrapper"]
-    var t = ["title"]
-    var titleArr = title.split(' ')
+    var tc = ["title-container"],
+        lw = ["letter-wrapper"],
+        t = ["title"],
+        titleArr = title.split(' '),
+        TitleContainer = document.createElement('div')
 
-    var TitleContainer = document.createElement('div')
     TitleContainer.classList.add(...tc)
     TitleContainer.id = "title-container-" + idx
 
@@ -128,7 +124,7 @@ function createTitle(title, idx, ...args) {
 
         var title = document.createElement('span')
         title.classList.add(...t)
-        title.innerHTML = el
+        title.textContent = el
 
         letterWrapper.appendChild(title);
         TitleContainer.appendChild(letterWrapper)
@@ -138,13 +134,12 @@ function createTitle(title, idx, ...args) {
 }
 
 function createButton(id = null, text = "", ...args) {
-    var className = [...args]
-
-    var btn = document.createElement("a")
+    var className = [...args],
+        btn = document.createElement("a")
 
     btn.classList.add(...className);
     btn.id = id
-    btn.innerHTML = text
+    btn.textContent = text
 
     return btn
 }
@@ -163,8 +158,8 @@ function setId(e, id) {
 }
 
 function addListClass(id, el, className) {
-    var test = document.getElementById(id);
-    var testArr = [...test.getElementsByTagName(el)]
+    var test = document.getElementById(id),
+        testArr = [...test.getElementsByTagName(el)]
 
     testArr.map((e) => {
         e.classList.add(className)
@@ -172,8 +167,8 @@ function addListClass(id, el, className) {
 }
 
 function removeListClass(id, el, className) {
-    var test = document.getElementById(id);
-    var testArr = [...test.getElementsByTagName(el)]
+    var test = document.getElementById(id),
+        testArr = [...test.getElementsByTagName(el)]
 
     testArr.map((e) => {
         e.classList.remove(className)
@@ -198,22 +193,22 @@ function hidePrev(active) {
 
 function showNext(active) {
     $("#member-" + active + " ~ div").addClass("active-ne")
-    $("#member-" + active).addClass("active")    
+    $("#member-" + active).addClass("active")
     addListClass("title-container-" + active, "span", "active-title")
     addClass("p-" + active, "active-role")
     addClass("pd-" + active, "active-description")
 }
 
 function counter() {
-    var counterc = ["counter"]
-    var numberc = ["counter-num"]
+    var counterc = ["counter"],
+        numberc = ["counter-num"],
+        counter = document.createElement('div'),
+        number = document.createElement('p')
 
-    var counter = document.createElement('div')
     counter.classList.add(...counterc);
 
-    var number = document.createElement('p')
     number.classList.add(...numberc);
-    number.innerHTML = active.toString() + 1 + " / " + "0" + avengers.length.toString();
+    number.textContent = active.toString() + 1 + " / " + "0" + avengers.length.toString();
     number.id = "c-c"
 
     counter.appendChild(number)
@@ -222,14 +217,14 @@ function counter() {
 }
 
 function updateSlide(active) {
-    var counter = document.getElementById("c-c");
-    var a = active;
-    var length = avengers.length
-    
-    counter.innerHTML = 0 + a.toString() + " / " + "0" + length.toString()
+    var counter = document.getElementById("c-c"),
+        a = active,
+        length = avengers.length
+
+    counter.textContent = 0 + a.toString() + " / " + "0" + length.toString()
 }
 
-function scroll() {
+function onScroll() {
     window.addEventListener("wheel", e => {
         var previousActive = active;
         clickStatus.click = true;
@@ -253,7 +248,7 @@ function scroll() {
     });
 }
 
-function click(next) {
+function onClick(next) {
     next.addEventListener("click", e => {
         var previousActive = active;
         clickStatus.click = true;
@@ -279,30 +274,31 @@ function click(next) {
 
 function renderTeamInfo() {
     var div = document.querySelector(".div-outer")
-    var div2 = createDiv(null, "wrap-name")
-    var div3 = createDiv(null, "wrap-role")
-    var div4 = createDiv(null, "wrap-description")
+    let components = {
+        div2: createDiv(null, "wrap-name"),
+        div3: createDiv(null, "wrap-role"),
+        div4: createDiv(null, "wrap-description")
+    }
 
     avengers.map((e, idx) => {
-        var tc = createTitle(e.name, idx)
-        var role = createPara("p-" + idx, e.role, "role")
-        var description = createPara("pd-" + idx, e.description, "description")
+        var tc = createTitle(e.name, idx),
+            role = createPara("p-" + idx, e.role, "role"),
+            description = createPara("pd-" + idx, e.description, "description")
 
-        div2.appendChild(tc)
-        div3.appendChild(role)
-        div4.appendChild(description)
+        components.div2.appendChild(tc)
+        components.div3.appendChild(role)
+        components.div4.appendChild(description)
     })
 
-    div.appendChild(div2)
-    div.appendChild(div3)
-    div.appendChild(div4)
+    for (var e in components) {
+        div.appendChild(components[e])
+    }
 }
 
 function renderTeam() {
     var teamList = document.querySelector("#t-l")
 
     avengers.map((e, idx) => {
-
         var li = createList("m-c", "member", "h-100"),
             outer = createDiv(null, "member-outer", "w-100"),
             secondOuter = createDiv(null, "info-outer", "w-100"),
@@ -310,7 +306,6 @@ function renderTeam() {
             divdiv = createDiv(null, "divide", "w-100"),
             name = createHeading("h2", "heading-" + idx, e.name, "member-name", "m-0"),
             role = createPara(null, e.role, "member-role", "m-0");
-
         imageHolder.style.backgroundImage = "url(" + e.image + ")"
 
         outer.appendChild(imageHolder)
@@ -327,30 +322,35 @@ function renderTeam() {
 }
 
 function render() {
-    var sectionImage = createSection("s-img", "section-image", "h-100");
-    var sectionInfo = createSection("s-inf", "section-info", "center", "h-100");
-    var listContainer = createDiv("l-c", "list-container", "w-100");
-    var teamList = createUList("t-l", "team-list", "m-0", "pd-0", "h-100")
-    var divOuter = createDiv("d-o", "div-outer");
-    var btn = createButton("btn-id", "&#8250;", "btn", "center")
-    var avengersTitle = createHeading("h3", "a-t", "Avengers", "rotate-title")
-    listContainer.appendChild(teamList)
-    sectionImage.appendChild(listContainer);
-    sectionImage.appendChild(avengersTitle)
-    sectionImage.appendChild(counter())
-    sectionInfo.appendChild(divOuter);
-    sectionInfo.appendChild(btn)
+    var components = {
+        sectionImage: createSection("s-img", "section-image", "h-100"),
+        sectionInfo: createSection("s-inf", "section-info", "center", "h-100"),
+        listContainer: createDiv("l-c", "list-container", "w-100"),
+        teamList: createUList("t-l", "team-list", "m-0", "pd-0", "h-100"),
+        divOuter: createDiv("d-o", "div-outer"),
+        btn: createButton("btn-id", "&#8250;", "btn", "center"),
+        avengersTitle: createHeading("h3", "a-t", "Avengers", "rotate-title")
+    }
 
-    container.appendChild(sectionImage);
-    container.appendChild(sectionInfo);
+    components.listContainer.appendChild(components.teamList)
+    components.sectionImage.appendChild(components.listContainer);
+    components.sectionImage.appendChild(components.avengersTitle)
+    components.sectionImage.appendChild(counter())
+    components.sectionInfo.appendChild(components.divOuter);
+    components.sectionInfo.appendChild(components.btn)
+
+    container.appendChild(components.sectionImage);
+    container.appendChild(components.sectionInfo);
+
     renderTeam()
     renderTeamInfo()
+
     window.addEventListener('load', function () {
         showNext(active)
         $("#member-" + active).addClass("active")
-        scroll()
+        onScroll()
         var next = document.querySelector("#btn-id")
-        click(next)
+        onClick(next)
     });
 }
 

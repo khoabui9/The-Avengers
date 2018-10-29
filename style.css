@@ -130,7 +130,7 @@ ul {
     cursor: pointer;
 }
 
-.image-container:hover ~ div{
+.image-container:hover~div {
     width: 100%;
     opacity: 1;
 }
@@ -166,7 +166,7 @@ ul {
 }
 
 .active {
-    height: 550px;
+    height: 500px;
 }
 
 .animate {
@@ -274,3 +274,4 @@ ul {
     left: 30%;
     top: 25%;
 }
+
